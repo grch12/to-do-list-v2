@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui;
+}
+
+#app {
+  border: 1px solid black;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 95vw;
+  max-width: 800px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  font-size: 15px;
+  position: relative;
+}
+
+#app > input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  outline: none;
+  font: inherit;
+  background-color: transparent;
+  color: inherit;
+}
+
+#app > ul {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 0;
+}
+
+#app > ul > li {
+  list-style: none;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ccc;
+  position: relative;
+}
+
+#app > ul > li > span.remove-button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+#app > ul > li > input {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  font: inherit;
+  width: 85%;
+  outline: none;
+  border-bottom: 2px solid transparent;
+  color: inherit;
+  transition: 0.2s;
+}
+
+#app > ul > li > input:focus {
+  border-bottom-color: royalblue;
+}
+
+#app > ul > li:hover > span.remove-button {
+  display: inline;
+}
+
+#app > span.total, #app > span.clear {
+  color: #777;
+  font-size: 0.8em;
+}
+
+#app > span.total {
+  margin-left: 8px;
+}
+
+#app > span.clear {
+  position: absolute;
+  right: 8px;
+  bottom: 0px;
+}
+
+#app > span.clear:hover {
+  color: red;
+}
+
+.toggler {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 1px solid currentcolor;
+  border-radius: 3px;
+  vertical-align: middle;
+  position: relative;
+  transition: 0.2s;
+  transform: translateY(-1px);
+}
+
+.toggler > img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+#app > ul > li.isDone > span.toggler {
+  border-color: royalblue;
+  background-color: royalblue;
+}
+
+#app > ul > li.isDone > span.toggler > img {
+  opacity: 1;
+}
+
+#app > ul > li.isDone > input {
+  color: #777;
+  text-decoration: line-through;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #222;
+    color: white;
+  }
+
+  #app {
+    border-color: #777;
+  }
+  
+  #app > ul > li {
+    background-color: #333;
+    color: white;
+    border-top-color: #555
+  }
+}
